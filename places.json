@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Kreuzzwerg: Das Kinder-Kultur-Café",
+    "rating": "3.9",
+    "address": "Hornstraße 23, 10963 Berlin",
+    "type": "Cafe",
+    "image": "https://www.cafe-kreuzzwerg.de/wp-content/uploads/2020/05/IMG_9391-1536x1152.jpg",
+    "mapURL": "https://www.google.com/maps/place/Kreuzzwerg%E2%9D%A4%EF%B8%8F%E2%9D%A4%EF%B8%8FDas+Kinder-Kultur-Caf%C3%A9%E2%9D%A4%EF%B8%8F%E2%9D%A4%EF%B8%8F/@52.4937334,13.3819271,16z/data=!4m6!3m5!1s0x47a8502fa9de3067:0x8c8950c77ea44260!8m2!3d52.4937334!4d13.3819271!16s%2Fg%2F1tf7fpst?entry=ttu"
+  },
+  {
+    "name": "Kindercafé Spielzimmer",
+    "rating": "4.3",
+    "address": "Schliemannstraße 37, 10437 Berlin",
+    "type": "Cafe",
+    "image": "https://spielzimmer.berlin/wp-content/uploads/2022/12/kindercafe-spielzimmer.jpg",
+    "mapURL": "https://www.google.com/maps/place/Kindercaf%C3%A9+Spielzimmer/@52.5424478,13.3800662,14z/data=!3m1!5s0x47a84dfff120c5b3:0x7b22b57851562e3c!4m10!1m2!2m1!1skinder+cafe!3m6!1s0x47a84dfff1b8b11b:0x400d843a34d1021!8m2!3d52.5424478!4d13.418175!15sCgtraW5kZXIgY2FmZVoNIgtraW5kZXIgY2FmZZIBDmNoaWxkcmVuc19jYWZlmgEkQ2hkRFNVaE5NRzluUzBWSlEwRm5TVU5rT0VwVFduUkJSUkFC4AEA!16s%2Fg%2F1tx4ncwd?entry=ttu"
+  },
+  {
+    "name": "MACHmit! Museum for Children",
+    "rating": "4.0",
+    "address": "Senefelderstraße 5, 10437 Berlin",
+    "type": "Museum",
+    "image": "https://i0.wp.com/machmitmuseum.de/wp-content/uploads/2019/04/224machmitmuseum-ausstellung-webseite.jpg?fit=1500%2C1000&ssl=1",
+    "mapURL": "https://www.google.com/maps/place/MACHmit!+Museum+for+Children/@52.542545,13.3800662,14z/data=!4m10!1m2!2m1!1skinder!3m6!1s0x47a84e00a17f7543:0xfee02b2c07fb0e6b!8m2!3d52.5405533!4d13.4227003!15sCgZraW5kZXJaCCIGa2luZGVykgEQY2hpbGRyZW5zX211c2V1beABAA!16s%2Fg%2F122qx_96?entry=ttu"
+  },
+  {
+    "name": "Labyrinth Kindermuseum Berlin",
+    "rating": "4.1",
+    "address": "Osloer Str. 12, 13359 Berlin",
+    "type": "Museum",
+    "image": "https://www.labyrinth-kindermuseum.de/sites/default/files/styles/slick_1280/public/field/image/willkommen-im-labyrinth-kindermuseum.jpg?itok=5ab8PXl0",
+    "mapURL": "https://www.google.com/maps/place/Labyrinth+Kindermuseum+Berlin/@52.5626743,13.3705217,14z/data=!3m1!5s0x47a85223533888b9:0x662ba4551190501b!4m10!1m2!2m1!1skinder+museum+berlin!3m6!1s0x47a8523cadcb38db:0xe4890d8297da8eb6!8m2!3d52.5560743!4d13.3860014!15sChRraW5kZXIgbXVzZXVtIGJlcmxpbloWIhRraW5kZXIgbXVzZXVtIGJlcmxpbpIBEGNoaWxkcmVuc19tdXNldW2aASRDaGREU1VoTk1HOW5TMFZKUTBGblNVTjFaMWxtVVROUlJSQULgAQA!16s%2Fg%2F12bfg2mqw?entry=ttu"
+  },
+  {
+    "name": "JUMP House Reinickendorf",
+    "rating": "4.2",
+    "address": "Miraustraße 38, 13509 Berlin",
+    "type": "Jump House",
+    "image": "https://www.jumphouse.de/assets/data/images/produkte/BagJUMP/JUMPHouseLeipzig_BagJUMP_inAktion_02.jpg",
+    "mapURL": "https://www.google.com/maps/place/JUMP+House+Reinickendorf/@52.5827295,11.0705556,7z/data=!4m10!1m2!2m1!1sJUMP+House!3m6!1s0x47a85476476d33af:0x3aacc4f2efaabb5a!8m2!3d52.5827295!4d13.3117665!15sCgpKVU1QIEhvdXNlIgOIAQFaDCIKanVtcCBob3VzZZIBDnNwb3J0c19jb21wbGV4mgEkQ2hkRFNVaE5NRzluUzBWSlEwRm5TVVJrTVdOVFZYZFJSUkFC4AEA!16s%2Fg%2F11cls7nn6c?entry=ttu"
+  },
+  {
+    "name": "MYJUMP BERLIN MITTE – TRAMPOLINPARK & TRAMPOLINHALLE Berlin",
+    "rating": "4.3",
+    "address": "Caroline-Michaelis-Straße 8, 10115 Berlin",
+    "type": "Jump House",
+    "image": "https://myjump.de/wp-content/uploads/2021/04/myjump_erfurt_20191021_DS_0951_hq-min-e1619534186531-800x818.jpg",
+    "mapURL": "https://www.google.com/maps/place/MYJUMP+BERLIN+MITTE+%E2%80%93+TRAMPOLINPARK+%26+TRAMPOLINHALLE+Berlin/@52.5827295,11.0705556,7z/data=!4m10!1m2!2m1!1sJUMP+House!3m6!1s0x47a851cdf93e50a9:0xcb829dd00b9a3a56!8m2!3d52.533024!4d13.3849723!15sCgpKVU1QIEhvdXNlIgOIAQFaDCIKanVtcCBob3VzZZIBDnNwb3J0c19jb21wbGV4mgEkQ2hkRFNVaE5NRzluUzBWSlEwRm5TVVJDTVRacE16ZEJSUkFC4AEA!16s%2Fg%2F11j90v5sbk?entry=ttu"
+  }
+]
