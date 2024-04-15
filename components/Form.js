@@ -1,7 +1,7 @@
-import useSWR from "swr";
+import { useRouter } from "next/router";
 
 export default function Form() {
-  const { mutate } = useSWR("/api/places");
+  const router = useRouter();
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -18,7 +18,7 @@ export default function Form() {
     });
 
     if (response.ok) {
-      mutate();
+      router.push("/");
     }
   }
   return (
