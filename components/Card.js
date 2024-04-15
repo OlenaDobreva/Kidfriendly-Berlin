@@ -1,7 +1,15 @@
 import Image from "next/image";
 import Link from "next/link.js";
 
-export default function Card({ name, rating, address, type, image, mapURL }) {
+export default function Card({
+  name,
+  rating,
+  address,
+  type,
+  image,
+  mapURL,
+  id,
+}) {
   return (
     <div>
       <h3>{name}</h3>
@@ -15,6 +23,7 @@ export default function Card({ name, rating, address, type, image, mapURL }) {
       <p>Address: {address}</p>
       <p>Type: {type}</p>
       <Link href={mapURL}>Google Map Link</Link>
+      <Link href={`/details/${id}`}>See more...</Link>
     </div>
   );
 }

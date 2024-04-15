@@ -5,6 +5,8 @@ export default async function handler(request, response) {
   await dbConnect();
   const { id } = request.query;
 
+  console.log("Hello from API");
+
   if (request.method === "GET") {
     const place = await Place.findById(id);
 
