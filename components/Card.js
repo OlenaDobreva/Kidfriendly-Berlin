@@ -10,7 +10,6 @@ export default function Card({ name, rating, address, type, image, mapURL }) {
         alt="kidfriendly place"
         width={160}
         height={140}
-        style={{ objectFit: "cover" }}
       ></Image>
       <p>Rating: {rating}⭐ from 5</p>
       <p>Address: {address}</p>
