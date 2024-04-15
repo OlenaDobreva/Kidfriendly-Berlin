@@ -1,6 +1,8 @@
 import { useRouter } from "next/router";
 import useSWR from "swr";
 import Link from "next/link";
+import Form from "@/components/Form";
+import Comments from "@/components/Comments";
 
 export default function CreatePlacePage() {
   const router = useRouter();
@@ -21,6 +23,8 @@ export default function CreatePlacePage() {
   return (
     <>
       <h2 id="add-place">Add New Place</h2>
+      <Form />
+
       <Link href="/">Go Back</Link>
     </>
   );
