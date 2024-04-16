@@ -5,8 +5,6 @@ export default async function handler(request, response) {
   await dbConnect();
   const { id } = request.query;
 
-  console.log("Hello from API");
-
   if (request.method === "GET") {
     const place = await Place.findById(id);
 
@@ -22,5 +20,9 @@ export default async function handler(request, response) {
       $set: request.body,
     });
     response.status(200).json({ status: `Place ${id} updated!` });
+  }
+  if (request.method === "DELETE") {
+    await Place.findByIdAndDelete(id);
+    response.status(200).json({ status: `Place ${id} successfully deleted.` });
   }
 }

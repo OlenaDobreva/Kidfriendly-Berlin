@@ -9,7 +9,7 @@ export default function App({ Component, pageProps }) {
           fetch(resource, init).then((res) => res.json()),
       }}
     >
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </SWRConfig>
   );
 }

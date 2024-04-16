@@ -8,7 +8,14 @@ export default function DetailsPage() {
   const router = useRouter();
   const { isReady } = router;
   const { id } = router.query;
-  const { data: place, isLoading, error, mutate } = useSWR(`/api/places/${id}`);
+  const {
+    data: place,
+    isLoading,
+    error,
+    mutate,
+  } = useSWR(id ? `/api/places/${id}` : null);
+
+  console.log(place);
 
   const [editMode, setEditMode] = useState(false);
 
@@ -32,6 +39,13 @@ export default function DetailsPage() {
     }
   }
 
+  async function deletePlace(id) {
+    await fetch(`/api/places/${id}`, {
+      method: "DELETE",
+    });
+    router.push("/");
+  }
+
   return (
     <>
       <Link href={"/"}>back</Link>
@@ -45,6 +59,9 @@ export default function DetailsPage() {
           <p>{place.rating}</p>
           <p>{place.type}</p>
           <button onClick={() => setEditMode(true)}>Edit</button>
+          <button type="button" onClick={() => deletePlace(place._id)}>
+            Delete
+          </button>
         </>
       )}
       {editMode && (
@@ -69,7 +86,6 @@ export default function DetailsPage() {
             Google Map Link:
             <input type="link" name="mapurl" defaultValue={place.mapURL} />
           </label>
-          <label></label>
 
           <button type="submit">Update</button>
           <button type="button" onClick={() => setEditMode(false)}>
