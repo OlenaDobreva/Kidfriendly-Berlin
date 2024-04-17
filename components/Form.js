@@ -1,4 +1,23 @@
 import { useRouter } from "next/router";
+import styled from "styled-components";
+
+const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 450px;
+  border: 1.5px solid darkgray;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+`;
+
+const StyledFormContainer = styled.div`
+  border: 3px solid darkgray;
+  border-radius: 8px;
+  padding: 20px;
+  width: fit-content;
+`;
 
 export default function Form() {
   const router = useRouter();
@@ -22,8 +41,8 @@ export default function Form() {
     }
   }
   return (
-    <>
-      <form onSubmit={handleSubmit}>
+    <StyledFormContainer>
+      <StyledForm onSubmit={handleSubmit}>
         <label>
           Name:
           <input type="text" name="name" required />
@@ -54,7 +73,7 @@ export default function Form() {
           <input type="url" name="mapURL" />
         </label>
         <button type="submit">Submit</button>
-      </form>
-    </>
+      </StyledForm>
+    </StyledFormContainer>
   );
 }

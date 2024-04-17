@@ -17,6 +17,7 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  /* color: rgb(221, 165, 195); */
 }
 
 /* body {
