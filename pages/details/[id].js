@@ -3,6 +3,40 @@ import { useRouter } from "next/router";
 import useSWR from "swr";
 import Image from "next/image";
 import { useState } from "react";
+import styled from "styled-components";
+
+const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 450px;
+  border: 1.5px solid darkgray;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+`;
+
+const StyledLink = styled.a`
+  color: blue;
+  text-decoration: underline;
+  margin-top: 10px;
+  transition: color 0.2s;
+
+  &:hover {
+    color: darkblue;
+  }
+`;
+const StyledButton = styled.button`
+  background-color: lightgray;
+  padding: 5px;
+  margin: 10px;
+  border-radius: 5px;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  border: 1.5px solid darkgray;
+  font-size: inherit;
+`;
 
 export default function DetailsPage() {
   const router = useRouter();
@@ -65,24 +99,24 @@ export default function DetailsPage() {
   const comments = place.comments;
   return (
     <>
-      <Link href={"/"}>back</Link>
+      <StyledLink href={"/"}>back</StyledLink>
       {place && !editMode && (
         <>
           <Image src={place.image} width="350" height="300" alt=""></Image>
           <h2>
             {place.name}, {place.address}
           </h2>
-          <Link href={place.mapURL}>Location on Google Maps</Link>
+          <StyledLink href={place.mapURL}>Location on Google Maps</StyledLink>
           <p>{place.rating}</p>
           <p>{place.type}</p>
-          <button onClick={() => setEditMode(true)}>Edit</button>
-          <button type="button" onClick={() => deletePlace(place._id)}>
+          <StyledButton onClick={() => setEditMode(true)}>Edit</StyledButton>
+          <StyledButton type="button" onClick={() => deletePlace(place._id)}>
             Delete
-          </button>
+          </StyledButton>
         </>
       )}
       {editMode && (
-        <form onSubmit={handleEdit}>
+        <StyledForm onSubmit={handleEdit}>
           <label>
             Name:
             <input type="text" name="name" defaultValue={place.name} />
@@ -104,13 +138,13 @@ export default function DetailsPage() {
             <input type="link" name="mapurl" defaultValue={place.mapURL} />
           </label>
 
-          <button type="submit">Update</button>
-          <button type="button" onClick={() => setEditMode(false)}>
+          <StyledButton type="submit">Update</StyledButton>
+          <StyledButton type="button" onClick={() => setEditMode(false)}>
             Cancel
-          </button>
-        </form>
+          </StyledButton>
+        </StyledForm>
       )}
-      <form onSubmit={handleSubmitComment}>
+      <StyledForm onSubmit={handleSubmitComment}>
         <label>
           Name:
           <input type="text" name="name" />
@@ -119,8 +153,8 @@ export default function DetailsPage() {
           Comment:
           <input type="text" name="comment" />
         </label>
-        <button type="submit">Add comment</button>
-      </form>
+        <StyledButton type="submit">Add comment</StyledButton>
+      </StyledForm>
       {comments && (
         <>
           <h4> There are {comments.length} comments to this place:</h4>

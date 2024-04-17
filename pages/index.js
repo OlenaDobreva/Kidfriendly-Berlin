@@ -1,6 +1,7 @@
 import useSWR from "swr";
 import styled from "styled-components";
 import Card from "@/components/Card";
+import Layout from "@/components/Layout";
 
 const List = styled.ul`
   list-style: none;
@@ -25,6 +26,7 @@ export default function Home() {
 
   return (
     <>
+      <h1>Kidfriendly Berlin Places</h1>
       <List role="list">
         {data.map((place) => {
           return (

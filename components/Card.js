@@ -6,8 +6,9 @@ const StyledCard = styled.div`
   display: flex;
   flex-direction: column;
   width: 450px;
-  border: 3px solid olive;
+  border: 3px solid darksalmon;
   border-radius: 15px;
+  background-color: ivory;
   padding: 20px;
   margin-bottom: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -15,8 +16,6 @@ const StyledCard = styled.div`
 
 const CardImage = styled(Image)`
   border-radius: 10px;
-  height: 140px;
-  width: auto;
 `;
 
 const StyledLink = styled.a`
@@ -45,7 +44,7 @@ export default function Card({
       <CardImage
         src={image}
         alt="kidfriendly place"
-        width={450}
+        width={250}
         height={140}
         layout="responsive"
       />
