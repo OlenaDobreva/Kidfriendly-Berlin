@@ -8,16 +8,15 @@ export default function DetailsPage() {
   const router = useRouter();
   const { isReady } = router;
   const { id } = router.query;
+  const [editMode, setEditMode] = useState(false);
+  console.log(id, "id");
   const {
     data: place,
     isLoading,
     error,
     mutate,
   } = useSWR(id ? `/api/places/${id}` : null);
-
-  console.log(place);
-
-  const [editMode, setEditMode] = useState(false);
+  console.log(place, "place");
 
   if (!isReady || isLoading || error) return <h2>Loading...</h2>;
 
@@ -46,6 +45,24 @@ export default function DetailsPage() {
     router.push("/");
   }
 
+  async function handleSubmitComment(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const commentData = Object.fromEntries(formData);
+
+    const response = await fetch(`/api/places/${id}`, {
+      method: "POST",
+      body: JSON.stringify(commentData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (response.ok) {
+      mutate();
+    }
+  }
+  const comments = place.comments;
   return (
     <>
       <Link href={"/"}>back</Link>
@@ -92,6 +109,34 @@ export default function DetailsPage() {
             Cancel
           </button>
         </form>
+      )}
+      <form onSubmit={handleSubmitComment}>
+        <label>
+          Name:
+          <input type="text" name="name" />
+        </label>
+        <label>
+          Comment:
+          <input type="text" name="comment" />
+        </label>
+        <button type="submit">Add comment</button>
+      </form>
+      {comments && (
+        <>
+          <h4> There are {comments.length} comments to this place:</h4>
+          {comments.map(({ name, comment }, idx) => {
+            return (
+              <>
+                <p key={idx}>
+                  <small>
+                    <strong>{name}</strong> commented on {place.name}
+                  </small>
+                </p>
+                <span>{comment}</span>
+              </>
+            );
+          })}
+        </>
       )}
     </>
   );
