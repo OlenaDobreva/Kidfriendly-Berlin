@@ -1,5 +1,34 @@
 import Image from "next/image";
 import Link from "next/link.js";
+import styled from "styled-components";
+
+const StyledCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  border: 3px solid olive;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+`;
+
+const CardImage = styled(Image)`
+  border-radius: 10px;
+  height: 140px;
+  width: auto;
+`;
+
+const StyledLink = styled.a`
+  color: blue;
+  text-decoration: underline;
+  margin-top: 10px;
+  transition: color 0.2s;
+
+  &:hover {
+    color: darkblue;
+  }
+`;
 
 export default function Card({
   name,
@@ -11,19 +40,20 @@ export default function Card({
   id,
 }) {
   return (
-    <div>
+    <StyledCard>
       <h3>{name}</h3>
-      <Image
+      <CardImage
         src={image}
         alt="kidfriendly place"
-        width={160}
+        width={450}
         height={140}
-      ></Image>
+        layout="responsive"
+      />
       <p>Rating: {rating}⭐ from 5</p>
       <p>Address: {address}</p>
       <p>Type: {type}</p>
-      <Link href={mapURL}>Google Map Link</Link>
-      <Link href={`/details/${id}`}>See more...</Link>
-    </div>
+      <StyledLink href={mapURL}>Google Map Link:</StyledLink>
+      <StyledLink href={`/details/${id}`}>See more...</StyledLink>
+    </StyledCard>
   );
 }

@@ -1,0 +1,66 @@
+[
+  {
+    "_id": {
+      "$oid": "6618ed35f17acc5851bf93c2"
+    },
+    "author": "Martha Boxley",
+    "rating": "5",
+    "comment": "Amazing place! There should be more cafes like this. My son had the best time and I enjoyed delicious drinks and food. On Sundays they have a huge brunch offering. It’s not cheap but for what you get it’s worth paying a bit more than the usual. I have a lot of respect for the staff too who manage to dodge tiny people while carrying hot drinks and plates. I’m not sure why there are some negative reviews here, would you expect staff to constantly smile while working in such a loud and busy environment? They do very well. I will happily come back"
+  },
+  {
+    "_id": {
+      "$oid": "6618ed35f17acc5851bf93c3"
+    },
+    "author": "Silan Dallal",
+    "rating": "4",
+    "comment": "We came in today for some fun time with our 2-year old and he had a blast! The playground is in great condition and big enough for parents to play and run around with the kids too. There are also many cars an toys and a cute area for smaller babies and it’s well priced. The only thing we thought could be better is the coffee but we would definitely return."
+  },
+  {
+    "_id": {
+      "$oid": "6618ed35f17acc5851bf93c4"
+    },
+    "author": "Ece Asakoglu",
+    "rating": "5",
+    "comment": "Do not go on a Sunday or a rainy day! It was overly crowded!!!  Do not forget to bring your lunch and snacks. It is possible to eat inside, there are automat type of things but no cafeteria. Better to know German or use Google Translate all the time. It is not a museum, it is a big playground like space that they might learn a bit as well. It is a very nice place for kids ages  from 2 to maybe 10. There are many things to do for most ages. Takes not more than 2 hours unless you sit and eat your lunch for long."
+  },
+  {
+    "_id": {
+      "$oid": "6618ed35f17acc5851bf93c5"
+    },
+    "name": "Katie Zerr",
+    "rating": "5",
+    "comment": "Great place to spend the day (or just the afternoon). Lots of activities. There's a giant costume wardrobe for kids to dress up, that's amazing. The cafeteria has a nice variety, also Vegan options (but it's quite pricey)."
+  },
+  {
+    "_id": {
+      "$oid": "6618ed35f17acc5851bf93c6"
+    },
+    "author": "Zubaer Ahmad",
+    "rating": "4.2",
+    "comment": "Nice place to pass some fun times. There are different jumping games for both kids and adults. Also there is a zip-lining section as well. We booked for 60 minutes but it was too short to go through everything. I would recommend at-least 90 minutes. One thing we didn’t like was a staff behaviour. She said we are not allowed to take photos on the jumping section and force us to take back our phone to the locker but later we saw many people was using their phone on the jumping area."
+  },
+  {
+    "_id": {
+      "$oid": "6618ed35f17acc5851bf93c7"
+    },
+    "author": "Tilman Benecke",
+    "rating": "5",
+    "comment": "We had a fantastic time at the trampoline park in Berlin! Hosting our daughter's birthday party there was a breeze, with a reasonable food menu and 90 minutes of playtime that kept everyone entertained. The facilities were quite clean, the staff was friendly, and the whole experience was a hit with kids and. Highly recommended for a fun-filled celebration!"
+  },
+  {
+    "_id": {
+      "$oid": "661cfa72b530d69260a98b48"
+    },
+    "author": "Teena Gauttam",
+    "rating": 5,
+    "comment": "Nice garden to spend a full day with kids with so many flowers. And April is the best month, you can also see cherry blossoms there."
+  },
+  {
+    "_id": {
+      "$oid": "661d18c3da4cc168e01755ad"
+    },
+    "author": "Olena",
+    "rating": 4,
+    "comment": "Nice place with trampolin and garden pool for kids. "
+  }
+]
