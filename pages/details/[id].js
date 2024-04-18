@@ -4,6 +4,7 @@ import useSWR from "swr";
 import Image from "next/image";
 import { useState } from "react";
 import styled from "styled-components";
+import FavoriteButton from "@/components/FavoriteButton";
 
 const StyledForm = styled.form`
   display: flex;
@@ -43,6 +44,7 @@ export default function DetailsPage() {
   const { isReady } = router;
   const { id } = router.query;
   const [editMode, setEditMode] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
   console.log(id, "id");
   const {
     data: place,
@@ -97,6 +99,9 @@ export default function DetailsPage() {
     }
   }
   const comments = place.comments;
+  const toggleFavorite = async () => {
+    setIsFavorite((prevState) => !prevState);
+  };
   return (
     <>
       <StyledLink href={"/"}>back</StyledLink>
@@ -113,6 +118,10 @@ export default function DetailsPage() {
           <StyledButton type="button" onClick={() => deletePlace(place._id)}>
             Delete
           </StyledButton>
+          <FavoriteButton
+            isFavorite={isFavorite}
+            onToggleFavorite={toggleFavorite}
+          />
         </>
       )}
       {editMode && (

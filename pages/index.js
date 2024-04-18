@@ -1,7 +1,8 @@
 import useSWR from "swr";
 import styled from "styled-components";
 import Card from "@/components/Card";
-import Layout from "@/components/Layout";
+import { useState } from "react";
+import FavoriteButton from "@/components/FavoriteButton";
 
 const List = styled.ul`
   list-style: none;
@@ -19,16 +20,26 @@ const ListItem = styled.li`
 
 export default function Home() {
   const { data, error, isLoading } = useSWR("/api/places");
+  const [favorites, setFavorites] = useState([]);
 
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;
-  console.log("list of places", data);
+
+  const toggleFavorite = (id) => {
+    const index = favorites.indexOf(id);
+    if (index !== -1) {
+      setFavorites(favorites.filter((favId) => favId !== id));
+    } else {
+      setFavorites([...favorites, id]);
+    }
+  };
 
   return (
     <>
-      <h1>Kidfriendly Berlin Places</h1>
+      <h1>Kidfriendly Places of Berlin</h1>
       <List role="list">
         {data.map((place) => {
+          const isFavorite = favorites.includes(place._id);
           return (
             <ListItem key={place._id}>
               <Card
@@ -39,6 +50,8 @@ export default function Home() {
                 image={place.image}
                 mapURL={place.mapURL}
                 id={`${place._id.$oid ?? place._id}`}
+                isFavorite={isFavorite}
+                onToggleFavorite={toggleFavorite}
               />
             </ListItem>
           );

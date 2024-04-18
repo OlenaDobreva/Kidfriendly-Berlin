@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link.js";
 import styled from "styled-components";
+import FavoriteButton from "./FavoriteButton";
 
 const StyledCard = styled.div`
   display: flex;
@@ -37,10 +38,19 @@ export default function Card({
   image,
   mapURL,
   id,
+  isFavorite,
+  onToggleFavorite,
 }) {
   return (
     <StyledCard>
-      <h3>{name}</h3>
+      <h3>
+        {name}{" "}
+        <FavoriteButton
+          isFavorite={isFavorite}
+          onToggleFavorite={onToggleFavorite}
+          id={id}
+        />
+      </h3>
       <CardImage
         src={image}
         alt="kidfriendly place"
