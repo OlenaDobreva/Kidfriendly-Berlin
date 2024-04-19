@@ -35,6 +35,11 @@ export default function Navigation() {
           <Image height={80} width={95} alt="create icon" src="/create.png" />
         </Link>
       </li>
+      <li>
+        <Link href="/login">
+          <Image height={65} width={65} alt="login icon" src="/login.png" />
+        </Link>
+      </li>
     </StyledList>
   );
 }
