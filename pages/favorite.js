@@ -16,33 +16,34 @@ const ListItem = styled.li`
   width: 100%;
 `;
 
-export default function FavoritePage() {
-  const { data, error, isLoading } = useSWR("/api/places");
+export default function FavoritePage({ toggleFavorite }) {
+  const { data, error, isLoading, mutate } = useSWR("/api/favorites");
 
   if (error) return <div>Failed to load</div>;
   if (isLoading) return <div>Loading...</div>;
-
-  // Filter the list of places to include only favorites
-  const favoritePlaces = data.filter((place) => place.isFavorite);
-
+  console.log("DATA", data);
+  mutate();
   return (
     <>
       <h1>Favorite Places</h1>
-      <List role="list">
-        {favoritePlaces.map((place) => (
-          <ListItem key={place._id}>
-            <FavoriteCard
-              name={place.name}
-              rating={place.rating}
-              address={place.address}
-              type={place.type}
-              image={place.image}
-              mapURL={place.mapURL}
-              id={place._id}
-            />
-          </ListItem>
-        ))}
-      </List>
+      {data.length > 0 ? (
+        data.map((place) => (
+          <FavoriteCard
+            key={place._id}
+            name={place.name}
+            rating={place.rating}
+            address={place.address}
+            type={place.type}
+            image={place.image}
+            mapURL={place.mapURL}
+            id={place._id}
+            isFavorite={true}
+            toggleFavorite={toggleFavorite}
+          />
+        ))
+      ) : (
+        <div>No favorite places found</div>
+      )}
     </>
   );
 }

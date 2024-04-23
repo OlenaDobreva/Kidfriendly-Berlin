@@ -5,8 +5,6 @@ import { redirect } from "next/dist/server/api-utils";
 const Account = () => {
   const { data: session, status } = useSession();
 
-  console.log("session", session);
-
   if (status === "authenticated") {
     return (
       <div>

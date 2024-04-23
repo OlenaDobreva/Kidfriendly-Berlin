@@ -1,12 +1,17 @@
 import styled from "styled-components";
 
-export default function FavoriteButton(isFavorite, onToggleFavorite, id) {
-  console.log(onToggleFavorite, "ontoggle");
+const StyledHeart = styled.button`
+  height: 25px;
+  width: 20px;
+`;
+
+export default function FavoriteButton({ isFavorite, toggleFavorite, id }) {
+  console.log("ISFAVORITE", isFavorite);
   return (
     <>
-      <button type="button" onClick={() => onToggleFavorite(id)}>
-        {isFavorite ? "🤍" : "❤️"}
-      </button>
+      <StyledHeart type="button" onClick={() => toggleFavorite(id)}>
+        {isFavorite ? "❤️" : "🤍"}
+      </StyledHeart>
     </>
   );
 }

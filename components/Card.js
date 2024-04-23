@@ -7,7 +7,7 @@ const StyledCard = styled.div`
   display: flex;
   flex-direction: column;
   width: 450px;
-  border: 3px solid darksalmon;
+  border: 5px solid rgb(150, 181, 120);
   border-radius: 15px;
   background-color: ivory;
   padding: 20px;
@@ -39,7 +39,7 @@ export default function Card({
   mapURL,
   id,
   isFavorite,
-  onToggleFavorite,
+  toggleFavorite,
 }) {
   return (
     <StyledCard>
@@ -47,7 +47,7 @@ export default function Card({
         {name}{" "}
         <FavoriteButton
           isFavorite={isFavorite}
-          onToggleFavorite={onToggleFavorite}
+          toggleFavorite={toggleFavorite}
           id={id}
         />
       </h3>

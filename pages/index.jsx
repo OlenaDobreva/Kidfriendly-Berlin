@@ -1,8 +1,7 @@
 import useSWR from "swr";
 import styled from "styled-components";
 import Card from "@/components/Card";
-import { useState } from "react";
-import FavoriteButton from "@/components/FavoriteButton";
+import "@fontsource/spicy-rice";
 
 const List = styled.ul`
   list-style: none;
@@ -18,28 +17,26 @@ const ListItem = styled.li`
   width: 100%;
 `;
 
-export default function Home() {
+const StyledHeader = styled.h1`
+  font-family: "Spicy Rice";
+  font-size: 40px;
+  font-weight: 100;
+  margin: 20px;
+  color: rgb(51, 50, 50);
+`;
+
+export default function Home({ toggleFavorite, favoritePlaces }) {
+  console.log("favoriteplaces", favoritePlaces);
   const { data, error, isLoading } = useSWR("/api/places");
-  const [favorites, setFavorites] = useState([]);
 
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;
 
-  const toggleFavorite = (id) => {
-    const index = favorites.indexOf(id);
-    if (index !== -1) {
-      setFavorites(favorites.filter((favId) => favId !== id));
-    } else {
-      setFavorites([...favorites, id]);
-    }
-  };
-
   return (
     <>
-      <h1>Kidfriendly Places of Berlin</h1>
+      <StyledHeader>Kidfriendly Places of Berlin</StyledHeader>
       <List role="list">
         {data.map((place) => {
-          const isFavorite = favorites.includes(place._id);
           return (
             <ListItem key={place._id}>
               <Card
@@ -50,8 +47,8 @@ export default function Home() {
                 image={place.image}
                 mapURL={place.mapURL}
                 id={`${place._id.$oid ?? place._id}`}
-                isFavorite={isFavorite}
-                onToggleFavorite={toggleFavorite}
+                toggleFavorite={toggleFavorite}
+                isFavorite={favoritePlaces.includes(place._id)}
               />
             </ListItem>
           );
