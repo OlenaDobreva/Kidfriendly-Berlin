@@ -1,30 +1,33 @@
 import { useRouter } from "next/router";
-import useSWR from "swr";
+import styled from "styled-components";
 import Link from "next/link";
 import Form from "@/components/Form";
+
+const StyledLink = styled.a`
+  color: blue;
+  text-decoration: underline;
+  margin-top: 10px;
+  transition: color 0.2s;
+
+  &:hover {
+    color: darkblue;
+  }
+`;
+
+const StyledHeading = styled.h2`
+  margin: 20px;
+  color: rgb(21, 20, 20);
+`;
 
 export default function CreatePlacePage() {
   const router = useRouter();
 
-  //   async function addPlace(place) {
-  //     const response = await fetch("/api/places", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify(place),
-  //     });
-
-  //     if (response.ok) {
-  //       router.push("/");
-  //     }
-  //   }
   return (
     <>
-      <h2 id="add-place">Add New Place</h2>
+      <StyledHeading id="add-place">Add New Place</StyledHeading>
       <Form />
 
-      <Link href="/">Go Back</Link>
+      <StyledLink href="/">Go Back</StyledLink>
     </>
   );
 }

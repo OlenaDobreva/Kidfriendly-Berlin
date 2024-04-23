@@ -1,7 +1,6 @@
 import Image from "next/image";
-import Link from "next/link.js";
-import styled from "styled-components";
 import FavoriteButton from "./FavoriteButton";
+import styled from "styled-components";
 
 const StyledCard = styled.div`
   display: flex;
@@ -15,10 +14,6 @@ const StyledCard = styled.div`
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 `;
 
-const CardImage = styled(Image)`
-  border-radius: 10px;
-`;
-
 const StyledLink = styled.a`
   color: blue;
   text-decoration: underline;
@@ -30,7 +25,7 @@ const StyledLink = styled.a`
   }
 `;
 
-export default function Card({
+export default function FavoriteCard({
   name,
   rating,
   address,
@@ -51,18 +46,11 @@ export default function Card({
           id={id}
         />
       </h3>
-      <CardImage
-        src={image}
-        alt="kidfriendly place"
-        width={250}
-        height={140}
-        layout="responsive"
-      />
+      <Image src={image} width={160} height={140} alt={name} />
       <p>Rating: {rating}⭐ from 5</p>
       <p>Address: {address}</p>
       <p>Type: {type}</p>
-      <StyledLink href={mapURL}>Google Map Link:</StyledLink>
-      <StyledLink href={`/details/${id}`}>See more...</StyledLink>
+      <StyledLink href={mapURL}>Google Map Link</StyledLink>
     </StyledCard>
   );
 }

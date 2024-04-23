@@ -6,17 +6,31 @@ const StyledForm = styled.form`
   flex-direction: column;
   gap: 10px;
   width: 450px;
-  border: 1.5px solid darkgray;
-  border-radius: 5px;
+  border: 5px solid rgb(150, 181, 120);
+  border-radius: 7px;
+  background-color: ivory;
   padding: 10px;
   margin-bottom: 10px;
 `;
 
 const StyledFormContainer = styled.div`
-  border: 3px solid darkgray;
-  border-radius: 8px;
-  padding: 20px;
-  width: fit-content;
+  // border: 3px solid darkgray;
+  // border-radius: 8px;
+  // padding: 20px;
+  // width: fit-content;
+`;
+
+const StyledButton = styled.button`
+  background-color: lightgray;
+  padding: 5px;
+  margin: 10px;
+  border-radius: 5px;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  border: 2px solid darkgray;
+  font-size: inherit;
+  width: 90px;
 `;
 
 export default function Form() {
@@ -72,7 +86,7 @@ export default function Form() {
           Map URL:
           <input type="url" name="mapURL" />
         </label>
-        <button type="submit">Submit</button>
+        <StyledButton type="submit">Submit</StyledButton>
       </StyledForm>
     </StyledFormContainer>
   );

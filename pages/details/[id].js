@@ -4,22 +4,24 @@ import useSWR from "swr";
 import Image from "next/image";
 import { useState } from "react";
 import styled from "styled-components";
+import FavoriteButton from "@/components/FavoriteButton";
 
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 10px;
   width: 450px;
-  border: 1.5px solid darkgray;
+  border: 5px solid rgb(150, 181, 120);
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 10px;
+  background-color: ivory;
 `;
 
 const StyledLink = styled.a`
   color: blue;
   text-decoration: underline;
-  margin-top: 10px;
+  margin: 10px;
   transition: color 0.2s;
 
   &:hover {
@@ -36,9 +38,17 @@ const StyledButton = styled.button`
   font-weight: bold;
   border: 1.5px solid darkgray;
   font-size: inherit;
+  min-width: 85px;
+  max-width: 170px;
+  width: auto;
 `;
 
-export default function DetailsPage() {
+const MapContainer = styled.div`
+  width: 100%;
+  height: 300px;
+`;
+
+export default function DetailsPage({ toggleFavorite, favoritePlaces }) {
   const router = useRouter();
   const { isReady } = router;
   const { id } = router.query;
@@ -50,7 +60,6 @@ export default function DetailsPage() {
     error,
     mutate,
   } = useSWR(id ? `/api/places/${id}` : null);
-  console.log(place, "place");
 
   if (!isReady || isLoading || error) return <h2>Loading...</h2>;
 
@@ -97,9 +106,10 @@ export default function DetailsPage() {
     }
   }
   const comments = place.comments;
+
   return (
     <>
-      <StyledLink href={"/"}>back</StyledLink>
+      {/* <StyledLink href={"/"}>back</StyledLink> */}
       {place && !editMode && (
         <>
           <Image src={place.image} width="350" height="300" alt=""></Image>
@@ -107,12 +117,30 @@ export default function DetailsPage() {
             {place.name}, {place.address}
           </h2>
           <StyledLink href={place.mapURL}>Location on Google Maps</StyledLink>
+          {/* <MapContainer>
+            <iframe
+              title="Google Map"
+              width="100%"
+              height="100%"
+              frameBorder="0"
+              style={{ border: 0 }}
+              src={mapURL}
+              allowFullScreen=""
+              aria-hidden="false"
+              tabIndex="0"
+            ></iframe>
+          </MapContainer> */}
           <p>{place.rating}</p>
           <p>{place.type}</p>
           <StyledButton onClick={() => setEditMode(true)}>Edit</StyledButton>
           <StyledButton type="button" onClick={() => deletePlace(place._id)}>
             Delete
           </StyledButton>
+          <FavoriteButton
+            isFavorite={favoritePlaces.includes(id)}
+            toggleFavorite={toggleFavorite}
+            id={id}
+          />
         </>
       )}
       {editMode && (
@@ -151,7 +179,7 @@ export default function DetailsPage() {
         </label>
         <label>
           Comment:
-          <input type="text" name="comment" />
+          <textarea name="comment" rows={5} cols={50} />
         </label>
         <StyledButton type="submit">Add comment</StyledButton>
       </StyledForm>

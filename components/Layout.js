@@ -6,6 +6,7 @@ const StyledLayout = styled.div`
   background-size: 50%;
   background-repeat: repeat;
   background-color: rgb(230, 187, 192);
+  min-height: 100vh;
 `;
 
 export default function Layout({ children }) {

@@ -8,8 +8,10 @@ const StyledList = styled.ul`
   justify-content: space-evenly;
   list-style-type: none;
   width: 100%;
-  background-color: rgb(188, 144, 172);
+  height: 70px;
+  background-color: rgb(205, 231, 152);
   padding: 5px;
+  // position: fixed;
 `;
 
 export default function Navigation() {
@@ -21,13 +23,23 @@ export default function Navigation() {
         </Link>
       </li>
       <li>
+        <Link href="/favorite">
+          <Image
+            height={65}
+            width={65}
+            alt="favorite icon"
+            src="/balloons.png"
+          />
+        </Link>
+      </li>
+      <li>
         <Link href="/create">
           <Image height={80} width={95} alt="create icon" src="/create.png" />
         </Link>
       </li>
       <li>
         <Link href="/login">
-          <Image height={65} width={65} alt="login icon" src="/login.png" />
+          <Image height={65} width={65} alt="login icon" src="/login2.png" />
         </Link>
       </li>
     </StyledList>
