@@ -1,10 +1,10 @@
-import Link from "next/link";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import useSWR from "swr";
 import Image from "next/image";
-import { useState } from "react";
 import styled from "styled-components";
 import FavoriteButton from "@/components/FavoriteButton";
+import Map from "@/components/GoogleMap";
 
 const StyledForm = styled.form`
   display: flex;
@@ -43,9 +43,10 @@ const StyledButton = styled.button`
   width: auto;
 `;
 
-const MapContainer = styled.div`
-  width: 100%;
+const StyledImage = styled(Image)`
+  border-radius: 10px;
   height: 300px;
+  width: auto;
 `;
 
 export default function DetailsPage({ toggleFavorite, favoritePlaces }) {
@@ -53,7 +54,6 @@ export default function DetailsPage({ toggleFavorite, favoritePlaces }) {
   const { isReady } = router;
   const { id } = router.query;
   const [editMode, setEditMode] = useState(false);
-  console.log(id, "id");
   const {
     data: place,
     isLoading,
@@ -112,24 +112,17 @@ export default function DetailsPage({ toggleFavorite, favoritePlaces }) {
       {/* <StyledLink href={"/"}>back</StyledLink> */}
       {place && !editMode && (
         <>
-          <Image src={place.image} width="350" height="300" alt=""></Image>
+          <StyledImage
+            src={place.image}
+            width="350"
+            height="300"
+            alt=""
+          ></StyledImage>
           <h2>
             {place.name}, {place.address}
           </h2>
           <StyledLink href={place.mapURL}>Location on Google Maps</StyledLink>
-          {/* <MapContainer>
-            <iframe
-              title="Google Map"
-              width="100%"
-              height="100%"
-              frameBorder="0"
-              style={{ border: 0 }}
-              src={mapURL}
-              allowFullScreen=""
-              aria-hidden="false"
-              tabIndex="0"
-            ></iframe>
-          </MapContainer> */}
+          <Map address={place.address} />
           <p>{place.rating}</p>
           <p>{place.type}</p>
           <StyledButton onClick={() => setEditMode(true)}>Edit</StyledButton>

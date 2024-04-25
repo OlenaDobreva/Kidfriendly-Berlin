@@ -17,6 +17,8 @@ const StyledCard = styled.div`
 
 const CardImage = styled(Image)`
   border-radius: 10px;
+  // height: 140px;
+  // width: 100%;
 `;
 
 const StyledLink = styled.a`
