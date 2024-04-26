@@ -1,19 +1,12 @@
 import useSWR from "swr";
 import styled from "styled-components";
 import FavoriteCard from "@/components/FavoriteCard";
+import "@fontsource/ribeye";
 
-const List = styled.ul`
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  padding-left: 0;
-`;
-
-const ListItem = styled.li`
-  position: relative;
-  width: 100%;
+const StyledHeader = styled.h1`
+  margin: 20px;
+  color: rgb(50, 50, 50);
+  font-family: "Ribeye";
 `;
 
 export default function FavoritePage({ toggleFavorite }) {
@@ -25,7 +18,7 @@ export default function FavoritePage({ toggleFavorite }) {
   mutate();
   return (
     <>
-      <h1>Favorite Places</h1>
+      <StyledHeader>Favorite Places</StyledHeader>
       {data.length > 0 ? (
         data.map((place) => (
           <FavoriteCard
