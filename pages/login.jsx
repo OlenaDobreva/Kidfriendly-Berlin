@@ -1,27 +1,66 @@
 import { useSession, signIn, signOut } from "next-auth/react";
 import React from "react";
+import Image from "next/image";
+import styled from "styled-components";
+import "@fontsource/ribeye";
+
+const StyledButton = styled.button`
+  background-color: lightgray;
+  padding: 5px;
+  margin: 10px;
+  border-radius: 5px;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  border: 2px solid darkgray;
+  font-size: inherit;
+  width: 90px;
+`;
+
+const StyledHeading = styled.h2`
+  margin: 20px;
+  color: rgb(21, 20, 20);
+  font-family: "Ribeye";
+`;
+
+const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  gap: 10px;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 20px;
+`;
 
 export default function Login() {
   const { data: session } = useSession();
   console.log("session", session);
   if (session) {
     return (
-      <>
-        <p>Welcome, {session.user.email}</p>
+      <StyledForm>
+        <StyledHeading>Login</StyledHeading>
+        <p>
+          <strong>Welcome 🍭, {session.user.email}</strong>
+        </p>
         <img
           src={session.user.image}
           alt=""
-          style={{ borderRadius: "50px" }}
+          style={{ borderRadius: "5px" }}
+          width={100}
         ></img>
-        <button onClick={() => signOut()}>Sign out</button>
-      </>
+        <StyledButton onClick={() => signOut()}>Sign out</StyledButton>
+      </StyledForm>
     );
   } else {
     return (
-      <>
-        Not signed in <br />
-        <button onClick={() => signIn()}>Sign in</button>
-      </>
+      <StyledForm>
+        <StyledHeading>Login</StyledHeading>
+        You are not signed in yet <br />
+        <Image height={250} width={260} alt="sign in icon" src="/signin.png" />
+        <p>You can login here ⬇️</p>
+        <StyledButton onClick={() => signIn()}>Sign in</StyledButton>
+      </StyledForm>
     );
   }
 }

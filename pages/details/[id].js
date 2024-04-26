@@ -121,10 +121,15 @@ export default function DetailsPage({ toggleFavorite, favoritePlaces }) {
           <h2>
             {place.name}, {place.address}
           </h2>
+          <p>
+            <strong>
+              {place.type} {place.rating}⭐ from 5
+            </strong>
+          </p>
+
           <StyledLink href={place.mapURL}>Location on Google Maps</StyledLink>
           <Map address={place.address} />
-          <p>{place.rating}</p>
-          <p>{place.type}</p>
+
           <StyledButton onClick={() => setEditMode(true)}>Edit</StyledButton>
           <StyledButton type="button" onClick={() => deletePlace(place._id)}>
             Delete

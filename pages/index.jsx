@@ -1,7 +1,7 @@
 import useSWR from "swr";
 import styled from "styled-components";
 import Card from "@/components/Card";
-import "@fontsource/spicy-rice";
+import "@fontsource/ribeye";
 
 const List = styled.ul`
   list-style: none;
@@ -18,11 +18,10 @@ const ListItem = styled.li`
 `;
 
 const StyledHeader = styled.h1`
-  font-family: "Spicy Rice";
+  font-family: "Ribeye";
   font-size: 40px;
-  font-weight: 100;
   margin: 20px;
-  color: rgb(51, 50, 50);
+  color: rgb(50, 50, 50);
 `;
 
 export default function Home({ toggleFavorite, favoritePlaces }) {
@@ -34,7 +33,9 @@ export default function Home({ toggleFavorite, favoritePlaces }) {
 
   return (
     <>
-      <StyledHeader>Kidfriendly Places of Berlin</StyledHeader>
+      <StyledHeader>
+        <span>Kidfriendly Places of Berlin</span>
+      </StyledHeader>
       <List role="list">
         {data.map((place) => {
           return (
