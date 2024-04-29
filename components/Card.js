@@ -6,19 +6,21 @@ import FavoriteButton from "./FavoriteButton";
 const StyledCard = styled.div`
   display: flex;
   flex-direction: column;
-  width: 450px;
+  width: 650px;
   border: 5px solid rgb(150, 181, 120);
   border-radius: 15px;
   background-color: ivory;
   padding: 20px;
   margin-bottom: 20px;
+  padding-right: 150px;
+  padding-left: 50px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 `;
 
 const CardImage = styled(Image)`
   border-radius: 10px;
-  // height: 140px;
-  // width: 100%;
+  height: 140px;
+  width: auto;
 `;
 
 const StyledLink = styled.a`

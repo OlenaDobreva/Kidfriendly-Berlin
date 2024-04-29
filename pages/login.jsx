@@ -27,8 +27,10 @@ const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   max-width: 400px;
+  border: 2px solid lightblue;
+  background-color: rgb(237, 241, 241);
   gap: 10px;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 10px;
   margin: 20px;
 `;

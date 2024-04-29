@@ -5,6 +5,7 @@ import Image from "next/image";
 import styled from "styled-components";
 import FavoriteButton from "@/components/FavoriteButton";
 import Map from "@/components/GoogleMap";
+import "@fontsource/ribeye";
 
 const StyledForm = styled.form`
   display: flex;
@@ -14,6 +15,18 @@ const StyledForm = styled.form`
   border: 5px solid rgb(150, 181, 120);
   border-radius: 5px;
   padding: 10px;
+  margin-bottom: 10px;
+  background-color: ivory;
+`;
+
+const StyledComment = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 450px;
+  border: 2.5px solid darksalmon;
+  border-radius: 15px;
+  padding: 5px;
   margin-bottom: 10px;
   background-color: ivory;
 `;
@@ -49,11 +62,19 @@ const StyledImage = styled(Image)`
   width: auto;
 `;
 
+const StyledHeader = styled.h2`
+  font-family: "Ribeye";
+  font-size: 25px;
+  margin: 10px;
+  color: rgb(50, 50, 50);
+`;
+
 export default function DetailsPage({ toggleFavorite, favoritePlaces }) {
   const router = useRouter();
   const { isReady } = router;
   const { id } = router.query;
   const [editMode, setEditMode] = useState(false);
+
   const {
     data: place,
     isLoading,
@@ -103,8 +124,10 @@ export default function DetailsPage({ toggleFavorite, favoritePlaces }) {
 
     if (response.ok) {
       mutate();
+      event.target.reset();
     }
   }
+
   const comments = place.comments;
 
   return (
@@ -112,20 +135,20 @@ export default function DetailsPage({ toggleFavorite, favoritePlaces }) {
       {/* <StyledLink href={"/"}>back</StyledLink> */}
       {place && !editMode && (
         <>
+          <StyledHeader>
+            {place.name}, {place.address}
+          </StyledHeader>
           <StyledImage
             src={place.image}
             width="350"
             height="300"
             alt=""
           ></StyledImage>
-          <h2>
-            {place.name}, {place.address}
-          </h2>
-          <p>
-            <strong>
-              {place.type} {place.rating}⭐ from 5
-            </strong>
-          </p>
+
+          <strong>
+            <p>Type: {place.type}</p>
+            <p>Rating: {place.rating}⭐ from 5</p>
+          </strong>
 
           <StyledLink href={place.mapURL}>Location on Google Maps</StyledLink>
           <Map address={place.address} />
@@ -186,14 +209,14 @@ export default function DetailsPage({ toggleFavorite, favoritePlaces }) {
           <h4> There are {comments.length} comments to this place:</h4>
           {comments.map(({ name, comment }, idx) => {
             return (
-              <>
-                <p key={idx}>
+              <StyledComment key={idx}>
+                <p>
                   <small>
                     <strong>{name}</strong> commented on {place.name}
                   </small>
                 </p>
                 <span>{comment}</span>
-              </>
+              </StyledComment>
             );
           })}
         </>
