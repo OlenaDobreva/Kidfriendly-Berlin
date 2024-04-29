@@ -9,12 +9,10 @@ const List = styled.ul`
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  padding-left: 0;
 `;
 
 const ListItem = styled.li`
   position: relative;
-  width: 100%;
 `;
 
 const StyledHeader = styled.h1`
@@ -22,6 +20,7 @@ const StyledHeader = styled.h1`
   font-size: 40px;
   margin: 20px;
   color: rgb(50, 50, 50);
+  text-align: center;
 `;
 
 export default function Home({ toggleFavorite, favoritePlaces }) {
@@ -49,7 +48,11 @@ export default function Home({ toggleFavorite, favoritePlaces }) {
                 mapURL={place.mapURL}
                 id={`${place._id.$oid ?? place._id}`}
                 toggleFavorite={toggleFavorite}
-                isFavorite={favoritePlaces.includes(place._id)}
+                isFavorite={
+                  favoritePlaces.error
+                    ? false
+                    : favoritePlaces?.includes(place._id)
+                }
               />
             </ListItem>
           );
